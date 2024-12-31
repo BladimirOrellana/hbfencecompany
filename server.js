@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const path = require("path"); // Required for serving React build files
+const path = require("path");
 
 // Load environment variables
 dotenv.config();
