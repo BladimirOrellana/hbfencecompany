@@ -1,14 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, IconButton } from "@mui/material";
-
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
- 
+  const location = useLocation(); // Get the current route
   return (
-    <AppBar position="static">
+    <AppBar
+      position="absolute" // Ensures the navbar is on top of the hero section
+      elevation={0} // Removes shadow for transparency
+      sx={{
+        backgroundColor: "transparent", // Transparent background
+        color: location.pathname === "/" ? "white" : "black", // White text for contrast
+      }}
+    >
       <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
+        <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: "bold" }}>
           HB Fence
         </Typography>
         <Button color="inherit" component={Link} to="/">
@@ -20,7 +27,9 @@ const Navbar = () => {
         <Button color="inherit" component={Link} to="/contact">
           Contact
         </Button>
-      
+        <IconButton color="inherit" sx={{ marginLeft: 2 }}>
+          <MenuIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
